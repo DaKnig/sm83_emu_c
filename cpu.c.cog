@@ -1,0 +1,25 @@
+#include "cpu.h"
+#include <stdbool.h>
+
+/*[[[cog
+import instr_processor as prep
+import cog
+
+unprefixed = prep.print_things() # machine code, mnemonic, bytes, clocks.
+## reminder - clocks=0 for conditional jumps.
+cog.outl(unprefixed)
+]]]*/
+//[[[end]]]
+
+static void run_single_instruction (struct SM83* cpu) {
+    union regs r = cpu->regs;
+    uint8_t instrs[3] = {cpu->mem[r.pc], cpu->mem[r.pc+1], cpu->mem[r.pc+2]};
+    
+    uint8_t duration[256] = {
+	
+    };
+}
+
+void run_until_halt(struct SM83* cpu) {
+    
+}
